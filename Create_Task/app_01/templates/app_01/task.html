@@ -1,31 +1,50 @@
 {% extends 'app_01/base.html' %}
 
+{% block title %}
+Your Page Title Here
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="styles.css">
+{% endblock %}
+
+{% block header %}
+<div style="border-bottom: 1px solid #ccc; padding: 10px;">
+    this HEADER CONTENT comes from base.html
+    <div>
+        <br>
+            <div>**********************************</div>
+            <br>
+            <a href="{% url 'reviews' %}">Go to reviews</a>
+            <br>
+            <a href="{% url 'cars' %}">Go to cars</a>
+            <br>
+            <a href="{% url 'register' %}">Go to register</a>
+            <br>
+            <a href="{% url 'task' %}">Go to task</a>
+            <br>
+            <a href="{% url 'create-task' %}">Create new task</a>
+            <br>
+            <a href="{% url 'homepage' %}"> home </a>
+            <br>
+            <div>**********************************</div>
+            <br>
+    </div>
+</div>
+{% endblock %}
+
+{% block sidebar %}
+<!-- Your sidebar content here, if any -->
+{% endblock %}
+
 {% block content %}
-<h3>Tasks</h3>
-<hr>
-<p>List of tasks will be displayed here.</p>
-<div>**********************************************</div>
-<div>
-    <p>
-        {% for task in tasks %}
-            <li>ID: {{ task.id }}</li>
-            <li>TITLE: {{ task.title }}</li>
-            <li>CREATED: {{ task.created }}</li>
-            <li>UPDATED: {{ task.updated }}</li>
-             <li style="margin-bottom: 10px;">DESCRIPTION: {{ task.description }}</li>
-        {% endfor %}
+<!-- Your main content here -->
+{% endblock %}
 
-    </p>
+{% block footer %}
+<!-- Your footer content here -->
+{% endblock %}
 
-</div>
-<div>
-    <div>**********************************************</div>
-
-    <p>
-        <li>ID: {{ sigle_task.id }}</li>
-        <li>TITLE: {{ sigle_task.title }}</li>
-        <li>CREATED: {{ sigle_task.created }}</li>
-        <li>UPDATED: {{ sigle_task.updated }}</li>
-    </p>
-</div>
+{% block scripts %}
+<!-- Your scripts here -->
 {% endblock %}

@@ -1,7 +1,7 @@
 {% extends 'app_01/base.html' %}
 
 {% block title %}
-HOME
+Index Page Title
 {% endblock %}
 
 {% block styles %}
@@ -9,61 +9,24 @@ HOME
 {% endblock %}
 
 {% block header %}
-    <div>**********************************</div>
-    <h1>Welcome to the HOME PAGE</h1>
-    <div>**********************************</div>
+<!-- If you have specific header content for index.html, it goes here -->
 {% endblock %}
 
 {% block sidebar %}
-<div>--------------------------------------</div>
-<p>This is the sidebar content.</p>
-
+<p>This is the sidebar content specific to the index page.</p>
+<div>**********************************</div>
 <br>
-<a href="{% url 'reviews' %}">Go to reviews</a>
-<br>
-<a href="{% url 'cars' %}">Go to cars</a>
-<br>    
-<a href="{% url 'register' %}">Go to register</a>
-<br>
-<a href="{% url 'task' %}">Go to task</a>
-<br>
-<a href="{% url 'create-task' %}">Create new task</a>
-<br>
-<br>
-
-
-<div>--------------------------------------</div>
 {% endblock %}
 
 {% block content %}
-<div>**********************************************</div>
-    <div>
-        <p>This is the first part of the main content area.</p>
-    </div>
-    <div>
-        <p>This is the second part of the main content area.</p>
-    </div>
-<div>**********************************************</div>
+<!-- Content specific to index.html goes here -->
+<div>Index page main content</div>
 {% endblock %}
 
 {% block footer %}
-<h2>Members:</h2>
-<div>::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
-
-    <p>
-        {% for member in members %}
-            <li>{{ member.name }}</li>
-        {% endfor %}
-    </p>
-
-<div>::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<!-- If you have specific footer content for index.html, it goes here -->
 {% endblock %}
 
 {% block scripts %}
-    <div>::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
-        <div id="script">
-            <p>This is the script content.</p>
-            <script src="scripts.js"></script>
-        </div>
-    <div>::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+<!-- Specific scripts for index.html go here -->
 {% endblock %}
