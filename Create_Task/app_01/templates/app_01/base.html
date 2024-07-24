@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+    {% block styles %}{% endblock %}
+</head>
+<body>
+{% block header %}
+    <div style="border-bottom: 1px solid #ccc; padding: 10px;">
+        this HEADER CONTENT comes from base.html
+    </div>
+{% endblock %}
+
+
+{% block sidebar %}
+    <div style="border-right: 1px solid #ccc; padding: 10px;">
+        this SIDEBAR CONTENT comes from base.html
+    </div>
+{% endblock %}
+
+{% block content %}
+    <div style="padding: 10px;">
+        this BLOCK CONTENT comes from base.html
+    </div>
+{% endblock %}
+
+{% block footer %}
+    <div style="border-top: 1px solid #ccc; padding: 10px;">
+        this FOOTER CONTENT comes from base.html
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    <div style="padding: 10px;">
+        this SCRIPT CONTENT comes from base.html
+    </div>
+{% endblock %}
+</body>
+</html>

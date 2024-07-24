@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>REGISTER</title>
+</head>
+<body>
+{% extends 'app_01/base.html' %}
+
+{% block content %}
+    <div>**********************************</div>
+    <h1>This is the REGISTER page.</h1>
+    <h2>Members:</h2>
+    <div style="border-bottom: 1px solid #ccc; padding: 10px;">
+        <ul>
+            {% for member in members %}
+                <li style="margin-bottom: 10px;">{{ member.name }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    <h2>Cars:</h2>
+    <ul>
+        {% for car in cars %}
+            <li>{{ car.car_model }}</li>
+            <li>{{ car.car_color }}</li>
+            <li style="margin-bottom: 10px;">{{ car.year_register }}</li>
+        {% endfor %}
+    </ul>
+    <div>**********************************</div>
+{% endblock %}
+
+</body>
+</html>

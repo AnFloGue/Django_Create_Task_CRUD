@@ -1,0 +1,69 @@
+{% extends 'app_01/base.html' %}
+
+{% block title %}
+HOME
+{% endblock %}
+
+{% block styles %}
+<link rel="stylesheet" href="styles.css">
+{% endblock %}
+
+{% block header %}
+    <div>**********************************</div>
+    <h1>Welcome to the HOME PAGE</h1>
+    <div>**********************************</div>
+{% endblock %}
+
+{% block sidebar %}
+<div>--------------------------------------</div>
+<p>This is the sidebar content.</p>
+
+<br>
+<a href="{% url 'reviews' %}">Go to reviews</a>
+<br>
+<a href="{% url 'cars' %}">Go to cars</a>
+<br>    
+<a href="{% url 'register' %}">Go to register</a>
+<br>
+<a href="{% url 'task' %}">Go to task</a>
+<br>
+<a href="{% url 'create-task' %}">Create new task</a>
+<br>
+<br>
+
+
+<div>--------------------------------------</div>
+{% endblock %}
+
+{% block content %}
+<div>**********************************************</div>
+    <div>
+        <p>This is the first part of the main content area.</p>
+    </div>
+    <div>
+        <p>This is the second part of the main content area.</p>
+    </div>
+<div>**********************************************</div>
+{% endblock %}
+
+{% block footer %}
+<h2>Members:</h2>
+<div>::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+
+    <p>
+        {% for member in members %}
+            <li>{{ member.name }}</li>
+        {% endfor %}
+    </p>
+
+<div>::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+{% endblock %}
+
+{% block scripts %}
+    <div>::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+        <div id="script">
+            <p>This is the script content.</p>
+            <script src="scripts.js"></script>
+        </div>
+    <div>::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::</div>
+{% endblock %}

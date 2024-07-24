@@ -1,0 +1,31 @@
+{% extends 'app_01/base.html' %}
+
+{% block content %}
+<h3>Tasks</h3>
+<hr>
+<p>List of tasks will be displayed here.</p>
+<div>**********************************************</div>
+<div>
+    <p>
+        {% for task in tasks %}
+            <li>ID: {{ task.id }}</li>
+            <li>TITLE: {{ task.title }}</li>
+            <li>CREATED: {{ task.created }}</li>
+            <li>UPDATED: {{ task.updated }}</li>
+             <li style="margin-bottom: 10px;">DESCRIPTION: {{ task.description }}</li>
+        {% endfor %}
+
+    </p>
+
+</div>
+<div>
+    <div>**********************************************</div>
+
+    <p>
+        <li>ID: {{ sigle_task.id }}</li>
+        <li>TITLE: {{ sigle_task.title }}</li>
+        <li>CREATED: {{ sigle_task.created }}</li>
+        <li>UPDATED: {{ sigle_task.updated }}</li>
+    </p>
+</div>
+{% endblock %}
