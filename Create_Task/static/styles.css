@@ -1,39 +1,37 @@
-/* Create_Task/static/styles.css */
-
-/* Import Bootstrap CSS */
 @import url('https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css');
 
-/* Custom Styles */
 body {
-    background-color: #000; /* Black background */
-    color: #fff; /* White text */
+    background-color: #000;
+    color: #fff;
+    margin-left: 100px;
+    margin-top: 100px;
+    margin-right: 100px;
 }
 
 h2, h3, p {
-    color: #fff; /* White text for headers and paragraphs */
+    color: #fff;
 }
 
 .btn-custom {
-    background-color: #ff6600; /* Orange background for buttons */
-    border-color: #ff6600; /* Orange border for buttons */
-    color: #fff; /* White text for buttons */
+    background-color: #ff6600;
+    border-color: #ff6600;
+    color: #fff;
 }
 
 .btn-custom:hover {
-    background-color: #cc5200; /* Darker orange on hover */
-    border-color: #cc5200; /* Darker orange border on hover */
+    background-color: #cc5200;
+    border-color: #cc5200;
 }
 
-/* Additional custom styles */
 .form-control {
-    background-color: #333; /* Dark background for form controls */
-    color: #fff; /* White text for form controls */
-    border: 1px solid #555; /* Dark border for form controls */
+    background-color: #333;
+    color: #fff;
+    border: 1px solid #555;
 }
 
 .form-control:focus {
-    background-color: #444; /* Slightly lighter background on focus */
-    color: #fff; /* White text on focus */
-    border-color: #ff6600; /* Orange border on focus */
-    box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.25); /* Orange shadow on focus */
+    background-color: #444;
+    color: #fff;
+    border-color: #ff6600;
+    box-shadow: 0 0 0 0.2rem rgba(255, 102, 0, 0.25);
 }
