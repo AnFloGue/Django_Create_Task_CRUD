@@ -8,7 +8,7 @@ class Task(models.Model):
     updated = models.DateTimeField(auto_now=True)
     
     def __str__(self):
-        return f"{self.title}"
+        return f"ID: {self.id} - Title: {self.title}"
 
 
 class Review(models.Model):
@@ -16,4 +16,4 @@ class Review(models.Model):
     task = models.ForeignKey(Task, on_delete=models.CASCADE)
     
     def __str__(self):
-        return f"{self.reviewer_name}"
+        return f"ID: {self.id} - Title: {self.reviewer_name}"

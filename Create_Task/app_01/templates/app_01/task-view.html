@@ -1,12 +1,17 @@
 {% extends 'app_01/base.html' %}
+{% load static %}
+
+{% block styles %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
+{% endblock %}
 
 {% block content %}
-<h3>Tasks</h3>
+<h3 xmlns="http://www.w3.org/1999/html">Tasks</h3>
 <hr>
-<p>List of tasks will be displayed here.</p>
-<div>**********************************************</div>
+<p>List of tasks:</p>
+
 <div>
-    <p>
+    <ul>
         {% for task in tasks %}
             <li>ID: {{ task.id }}</li>
             <li>TITLE: {{ task.title }}</li>
@@ -14,10 +19,21 @@
             <li>UPDATED: {{ task.updated }}</li>
             <li style="margin-bottom: 10px;">DESCRIPTION: {{ task.description }}</li>
         {% endfor %}
-    </p>
-</div>
-<div>
+    </ul>
 
+    <br>
+    <p>Single task:</p>
+    <p>
+        {% if single_task_id %}
+            <li>ID: {{ single_task_id }}</li>
+            <li>TITLE: {{ single_task_title }}</li>
+            <li>CREATED: {{ single_task_created }}</li>
+            <li>UPDATED: {{ single_task_updated }}</li>
+            <li style="margin-bottom: 10px;">DESCRIPTION: {{ single_task_description }}</li>
+        {% else %}
+            <p>No tasks found.</p>
+        {% endif %}
+    </p>
 </div>
 {% endblock %}
 

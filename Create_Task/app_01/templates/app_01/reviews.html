@@ -1,11 +1,12 @@
 {% extends 'app_01/base.html' %}
+{% load static bootstrap4 %}
 {% block title %}
-Index Page Title
+Reviews Page
 {% endblock %}
 
 {% block styles %}
-
-<link rel="stylesheet" href="styles.css">
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
 {% endblock %}
 
 {% block header %}
@@ -15,33 +16,29 @@ Index Page Title
 
 {% block sidebar %}
 <div>**********************************</div>
-<p>This is the sidebar content specific to the Register page.</p>
+<p>This is the sidebar content specific to the Reviews page.</p>
 <br>
 {% endblock %}
 
 {% block content %}
 <div>**********************************</div>
-<body>
-    <h3>Reviews</h3>
-    {% if reviews %}
-        <ul>
-            {% for review in reviews %}
-                <li>{{ review.content }} - <em>{{ review.author }}</em></li>
-            {% endfor %}
-        </ul>
-    {% else %}
-        <p>No reviews yet.</p>
-    {% endif %}
-</body>
-
+<h3>Reviews</h3>
+{% if reviews %}
+    <ul>
+        {% for review in reviews %}
+            <li>{{ review.content }} - <em>{{ review.author }}</em></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>No reviews yet.</p>
+{% endif %}
 {% endblock %}
 
 {% block footer %}
 <div>**********************************</div>
-<p>This is the footer content specific to the Register page.</p>
+<p>This is the footer content specific to the Reviews page.</p>
 {% endblock %}
 
 {% block scripts %}
-<div>**********************************</div>
-<p>This is the scripts content specific to the Register page.</p>
+{% bootstrap_javascript %}
 {% endblock %}

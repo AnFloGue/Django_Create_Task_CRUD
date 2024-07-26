@@ -1,11 +1,12 @@
 {% extends 'app_01/base.html' %}
+{% load static bootstrap4 %}
 {% block title %}
 Index Page Title
 {% endblock %}
 
 {% block styles %}
-
-<link rel="stylesheet" href="styles.css">
+{% bootstrap_css %}
+<link rel="stylesheet" href="{% static 'styles.css' %}">
 {% endblock %}
 
 {% block header %}
@@ -30,6 +31,7 @@ Index Page Title
 {% endblock %}
 
 {% block scripts %}
+{% bootstrap_javascript %}
 <div>**********************************</div>
 <p>This is the scripts content specific to the Register page.</p>
 {% endblock %}

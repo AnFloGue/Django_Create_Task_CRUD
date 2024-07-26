@@ -1,6 +1,7 @@
+# In `views.py`
 from django.http import HttpResponse
-from django.shortcuts import render, redirect
-from .models import (Task, Review)
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Task, Review
 from .forms import TaskForm
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -19,15 +20,26 @@ def homepage(request):
 def task_view(request):
     try:
         query_data_all = Task.objects.all()
-        # Your code to handle the found object
     except ObjectDoesNotExist:
-        # Fallback behavior: redirect or render a custom error page
-        return HttpResponse('Task not found', status=404)
-    all_tasks = Task.objects.all()
-    context = {
-        'tasks': all_tasks,
-        'single_task': query_data_all
-    }
+        return HttpResponse('No tasks found', status=404)
+    
+    if query_data_all.exists():
+        context = {
+            'tasks': query_data_all,
+            "single_task_id": query_data_all[0].id,
+            "single_task_title": query_data_all[0].title,
+            "single_task_created": query_data_all[0].created,
+            "single_task_updated": query_data_all[0].updated,
+            "single_task_description": query_data_all[0].description,
+        }
+    else:
+        context = {
+            'tasks': query_data_all,
+            "single_task_id": None,
+            "single_task_title": None,
+            "single_task_description": None,
+        }
+    
     return render(request, 'app_01/task-view.html', context)
 
 
@@ -55,5 +67,20 @@ def create_task(request):
     return render(request, 'app_01/create-task.html', context)
 
 
+def update_task(request, pk):
+    task = Task.objects.get(id=pk)
+   
+    form = TaskForm(instance=task)
+    for form in form:
+        print(f"Printed Form: {form}")
+    
+    
+    return render(request, 'app_01/update-task.html', {'form': form})
+
+
 def register(request):
-    return render(request, 'app_01/register.html')
+    reviews = Review.objects.all()
+    context = {
+        'reviews': reviews
+    }
+    return render(request, 'app_01/register.html', context)

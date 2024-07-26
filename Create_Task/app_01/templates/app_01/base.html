@@ -7,7 +7,6 @@
 <body>
 {% block menu %}
     <div style="border-bottom: 1px solid #ccc; padding: 10px;">
-        <!-- Menu HTML code -->
         <div>
             <br>
                 <div>**********************************</div>
@@ -22,14 +21,18 @@
                 <br>
                 <a href="{% url 'create-task' %}">New Task</a>
                 <br>
+                <br>
+            <a href="{% url 'update-task' 1 %}">Update Task</a>                <br>
 
                 <br>
                 <a href="{% url 'reviews' %}">Reviews</a>
                 <br>
 
-            <br>
-            <a href="{% url 'register' %}">Register</a>
-            <br>
+                <br>
+                <a href="{% url 'register' %}">Register</a>
+                <br>
+
+
 
                 <br>
                 <br>
