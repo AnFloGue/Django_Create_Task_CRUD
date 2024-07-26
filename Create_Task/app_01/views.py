@@ -16,7 +16,7 @@ def homepage(request):
     return render(request, 'app_01/index.html', context)
 
 
-def task(request):
+def task_view(request):
     try:
         query_data_all = Task.objects.all()
         # Your code to handle the found object
@@ -28,7 +28,7 @@ def task(request):
         'tasks': all_tasks,
         'single_task': query_data_all
     }
-    return render(request, 'app_01/task.html', context)
+    return render(request, 'app_01/task-view.html', context)
 
 
 def reviews(request):
@@ -46,10 +46,14 @@ def create_task(request):
         form = TaskForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('task')
+            return redirect('task-view')
     
     context = {
         "TaskForm": form
     }
     
     return render(request, 'app_01/create-task.html', context)
+
+
+def register(request):
+    return render(request, 'app_01/register.html')

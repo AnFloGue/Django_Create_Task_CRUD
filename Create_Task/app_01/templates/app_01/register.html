@@ -1,33 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>REGISTER</title>
-</head>
-<body>
 {% extends 'app_01/base.html' %}
-
-{% block content %}
-    <div>**********************************</div>
-    <h1>This is the REGISTER page.</h1>
-    <h2>Members:</h2>
-    <div style="border-bottom: 1px solid #ccc; padding: 10px;">
-        <ul>
-            {% for member in members %}
-                <li style="margin-bottom: 10px;">{{ member.name }}</li>
-            {% endfor %}
-        </ul>
-    </div>
-    <h2>Cars:</h2>
-    <ul>
-        {% for car in cars %}
-            <li>{{ car.car_model }}</li>
-            <li>{{ car.car_color }}</li>
-            <li style="margin-bottom: 10px;">{{ car.year_register }}</li>
-        {% endfor %}
-    </ul>
-    <div>**********************************</div>
+{% block title %}
+Index Page Title
 {% endblock %}
 
-</body>
-</html>
+{% block styles %}
+
+<link rel="stylesheet" href="styles.css">
+{% endblock %}
+
+{% block header %}
+<div>**********************************</div>
+<h2>Register page</h2>
+{% endblock %}
+
+{% block sidebar %}
+<div>**********************************</div>
+<p>This is the sidebar content specific to the Register page.</p>
+<br>
+{% endblock %}
+
+{% block content %}
+<div>**********************************</div>
+<p>This is the content specific to the Register page.</p>
+{% endblock %}
+
+{% block footer %}
+<div>**********************************</div>
+<p>This is the footer content specific to the Register page.</p>
+{% endblock %}
+
+{% block scripts %}
+<div>**********************************</div>
+<p>This is the scripts content specific to the Register page.</p>
+{% endblock %}

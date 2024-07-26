@@ -10,27 +10,38 @@ Index Page Title
 
 {% block header %}
 <div>**********************************</div>
-<h2>Index page</h2>
-
+<h2>Reviews page</h2>
 {% endblock %}
 
 {% block sidebar %}
 <div>**********************************</div>
-<p>This is the sidebar content specific to the Index page.</p>
+<p>This is the sidebar content specific to the Register page.</p>
 <br>
 {% endblock %}
 
 {% block content %}
 <div>**********************************</div>
-<p>This is the content specific to the Index page.</p>
+<body>
+    <h3>Reviews</h3>
+    {% if reviews %}
+        <ul>
+            {% for review in reviews %}
+                <li>{{ review.content }} - <em>{{ review.author }}</em></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No reviews yet.</p>
+    {% endif %}
+</body>
+
 {% endblock %}
 
 {% block footer %}
 <div>**********************************</div>
-<p>This is the footer content specific to the Index page.</p>
+<p>This is the footer content specific to the Register page.</p>
 {% endblock %}
 
 {% block scripts %}
 <div>**********************************</div>
-<p>This is the scripts content specific to the Index page.</p>
+<p>This is the scripts content specific to the Register page.</p>
 {% endblock %}
