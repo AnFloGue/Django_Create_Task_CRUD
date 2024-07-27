@@ -2,13 +2,10 @@
 {% load static %}
 {% load bootstrap4 %}
 {% block title %}
-Update Task Page Title
+Update Task
 {% endblock %}
 
-{% block styles %}
-{% bootstrap_css %}
-<link rel="stylesheet" href="{% static 'styles.css' %}">
-{% endblock %}
+{% block styles %} {% bootstrap_css %} <link rel="stylesheet" href="{% static 'styles.css' %}"> {% endblock %}
 
 {% block header %}
 <div>**********************************</div>
@@ -18,16 +15,22 @@ Update Task Page Title
 {% block content %}
 <div>**********************************</div>
 
-<h3> Update your tasks here: </h3>
+<h3> Update your task {{ task.id }}: </h3>
 
 <div>**********************************</div>
 
-<h4 > Task form </h4>
+<h4> Task form </h4>
 <hr>
 <hr>
 <form method="POST" autocomplete="off">
     {% csrf_token %}
-    <!-- Code -->
+    {% for field in UpdateTaskForm %}
+        <div class="form-group">
+            {{ field.label_tag }}
+            {{ field }}
+            {{ field.errors }}
+        </div>
+    {% endfor %}
     <button type="submit" class="btn btn-custom">Update task</button>
 </form>
 {% endblock %}

@@ -1,32 +1,33 @@
 {% extends 'app_01/base.html' %}
 {% load static bootstrap4 %}
+
 {% block title %}
-Create Task Page
+    New Task
 {% endblock %}
 
 {% block styles %}
-{% bootstrap_css %}
-<link rel="stylesheet" href="{% static 'styles.css' %}">
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 {% endblock %}
 
 {% block header %}
-<h2>Create Task page</h2>
+    <h2>Create Task page</h2>
 {% endblock %}
 
 {% block content %}
-<h3>Create your task here</h3>
-<p>Task form</p>
-<hr>
-<form method="POST" autocomplete="off" enctype="multipart/form-data">
-    {% csrf_token %}
-    {% bootstrap_form TaskForm %}
-    <button type="submit" class="btn btn-custom">Create task</button>
-</form>
+    <h3>Create your task here</h3>
+    <p>Task form</p>
+    <hr>
+    <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form TaskForm %}
+        <button type="submit" class="btn btn-custom">Create task</button>
+    </form>
 {% endblock %}
 
 {% block footer %}
 {% endblock %}
 
 {% block scripts %}
-{% bootstrap_javascript %}
+    {% bootstrap_javascript %}
 {% endblock %}

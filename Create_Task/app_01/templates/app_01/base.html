@@ -5,48 +5,43 @@
     {% block styles %}{% endblock %}
 </head>
 <body>
-{% block menu %}
-    <div style="border-bottom: 1px solid #ccc; padding: 10px;">
-        <div>
-            <br>
+
+    {% block menu %}
+        <div style="border-bottom: 1px solid #ccc; padding: 10px;">
+            <div>
+                <br>
                 <div>**********************************</div>
                 <br>
                 <a href="{% url 'homepage' %}"> Home </a>
                 <br>
-
                 <br>
                 <a href="{% url 'task-view' %}">View Tasks</a>
                 <br>
-
                 <br>
                 <a href="{% url 'create-task' %}">New Task</a>
                 <br>
                 <br>
-            <a href="{% url 'update-task' 1 %}">Update Task</a>                <br>
-
+                <a href="{% url 'update-task' 1 %}">Update Task</a>
+                <br>
                 <br>
                 <a href="{% url 'reviews' %}">Reviews</a>
                 <br>
-
                 <br>
                 <a href="{% url 'register' %}">Register</a>
                 <br>
-
-
-
                 <br>
                 <br>
-
                 <div>**********************************</div>
                 <br>
+            </div>
         </div>
-    </div>
-{% endblock %}
+    {% endblock %}
 
-{% block header %}{% endblock %}
-{% block sidebar %}{% endblock %}
-{% block content %}{% endblock %}
-{% block footer %}{% endblock %}
-{% block scripts %}{% endblock %}
+    {% block header %}{% endblock %}
+    {% block sidebar %}{% endblock %}
+    {% block content %}{% endblock %}
+    {% block footer %}{% endblock %}
+    {% block scripts %}{% endblock %}
+
 </body>
 </html>

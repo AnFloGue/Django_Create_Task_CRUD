@@ -68,14 +68,18 @@ def create_task(request):
 
 
 def update_task(request, pk):
-    task = Task.objects.get(id=pk)
-   
-    form = TaskForm(instance=task)
-    for form in form:
-        print(f"Printed Form: {form}")
+    task_db_obj = get_object_or_404(Task, id=pk)
+    form_pre_filled_obj = TaskForm(request.POST or None, instance=task_db_obj)
     
+    if request.method == 'POST' and form_pre_filled_obj.is_valid():
+        form_pre_filled_obj.save()
+        return redirect('task-view')
     
-    return render(request, 'app_01/update-task.html', {'form': form})
+    context = {
+        "UpdateTaskForm": form_pre_filled_obj
+    }
+    
+    return render(request, 'app_01/update-task.html', context)
 
 
 def register(request):

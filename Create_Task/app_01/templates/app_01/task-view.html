@@ -2,64 +2,70 @@
 {% load static %}
 {% load bootstrap4 %}
 
+{% block title %}
+    View Task
+{% endblock %}
+
 {% block styles %}
-{% bootstrap_css %}
-<link rel="stylesheet" href="{% static 'styles.css' %}">
-<style>
-    .task-container {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 20px;
-    }
-</style>
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <style>
+        .task-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+    </style>
 {% endblock %}
 
 {% block header %}
-<h2>Tasks:</h2>
-<h3>List of tasks:</h3>
+    <h2>Tasks:</h2>
+    <h3>List of tasks:</h3>
 {% endblock %}
 
 {% block content %}
-<div class="task-container">
-    <div>
-        <ul>
-            {% for task in tasks %}
-                <div>----------------------------</div>
-                <li>ID: {{ task.id }}</li>
-                <li>TITLE: {{ task.title }}</li>
-                <li>DESCRIPTION: {{ task.description }}</li>
-                <li>CREATED: {{ task.created }}</li>
-                <li style="margin-bottom: 10px;">UPDATED: {{ task.updated }}</li>
-            {% endfor %}
-        </ul>
+    <div class="task-container">
+        <div>
+            <ul>
+                {% for task in tasks %}
+                    <div>----------------------------</div>
+                    <li>ID: {{ task.id }}</li>
+                    <li>TITLE: {{ task.title }}</li>
+                    <li>DESCRIPTION: {{ task.description }}</li>
+                    <li>CREATED: {{ task.created }}</li>
+                    <li style="margin-bottom: 10px;">UPDATED: {{ task.updated }}</li>
+                    <a href="{% url 'update-task' task.id %}">Update task</a>
+                    <br><br>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>
+            <h2>Task number {{ single_task_id }}:</h2>
+            <p>
+                {% if single_task_id %}
+                    <div>----------------------------</div>
+                    <li>ID: {{ single_task_id }}</li>
+                    <li>TITLE: {{ single_task_title }}</li>
+                    <li>DESCRIPTION: {{ single_task_description }}</li>
+                    <li>CREATED: {{ single_task_created }}</li>
+                    <li style="margin-bottom: 10px;">UPDATED: {{ single_task_updated }}</li>
+                {% else %}
+                    <p>No tasks found.</p>
+                {% endif %}
+            </p>
+        </div>
     </div>
-    <div>
-        <h2>Task number {{ single_task_id }}:</h2>
-        <p>
-            {% if single_task_id %}
-                <div>----------------------------</div>
-                <li>ID: {{ single_task_id }}</li>
-                <li>TITLE: {{ single_task_title }}</li>
-                <li>DESCRIPTION: {{ single_task_description }}</li>
-                <li>CREATED: {{ single_task_created }}</li>
-                <li style="margin-bottom: 10px;">UPDATED: {{ single_task_updated }}</li>
-            {% else %}
-                <p>No tasks found.</p>
-            {% endif %}
-        </p>
-    </div>
-</div>
 {% endblock %}
 
 {% block sidebar %}
-<!-- Your sidebar content here, if any -->
+    <!-- Your sidebar content here, if any -->
 {% endblock %}
 
 {% block footer %}
-<!-- Your footer content here -->
+    <!-- Your footer content here -->
 {% endblock %}
 
 {% block scripts %}
-{% bootstrap_javascript %}
-<!-- Your scripts here -->
+    {% bootstrap_javascript %}
+    <!-- Your scripts here -->
 {% endblock %}
