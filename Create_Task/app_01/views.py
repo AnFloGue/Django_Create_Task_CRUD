@@ -97,18 +97,29 @@ def delete_task(request, pk):
 
 
 def register(request):
-    reviews = Review.objects.all()
-    
-    form = CreateUserForm()
+    registration_form = CreateUserForm()
     
     if request.method == 'POST':
-        form = CreateUserForm(request.POST)
-        if form.is_valid():
-            form.save()
+        registration_form = CreateUserForm(request.POST)
+        if registration_form.is_valid():
+            registration_form.save()
             return redirect('homepage')
-        
+    
     context = {
-        'form': form, 
-        'reviews': reviews
+        'form': registration_form,
     }
     return render(request, 'app_01/register.html', context)
+
+
+def login_page(request):
+    context = {
+        'reviews': reviews
+    }
+    return render(request, 'app_01/login.html', context)
+
+
+def dashboard(request):
+    context = {
+        'reviews': reviews
+    }
+    return render(request, 'app_01/dashboard.html', context)

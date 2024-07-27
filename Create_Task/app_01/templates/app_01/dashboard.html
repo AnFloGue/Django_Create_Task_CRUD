@@ -1,0 +1,31 @@
+{% extends 'app_01/base.html' %}
+{% load static bootstrap4 %}
+
+{% block title %}
+Dashboard
+{% endblock %}
+
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block header %}
+<div>**********************************</div>
+    <h1>Dashboard</h1>
+{% endblock %}
+
+{% block content %}
+<div>**********************************</div>
+    <h3>User information:</h3>
+
+    <hr>
+
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block scripts %}
+    {% bootstrap_javascript %}
+{% endblock %}

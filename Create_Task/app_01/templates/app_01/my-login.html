@@ -1,0 +1,36 @@
+{% extends 'app_01/base.html' %}
+{% load static bootstrap4 %}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block styles %}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+{% endblock %}
+
+{% block header %}
+<div>**********************************</div>
+    <h1>Login</h1>
+{% endblock %}
+
+{% block content %}
+<div>**********************************</div>
+    <h3>Login:</h3>
+
+    <hr>
+    <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-custom">Login</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'task-view' %}'">Cancel</button>
+    </form>
+{% endblock %}
+
+{% block footer %}
+{% endblock %}
+
+{% block scripts %}
+    {% bootstrap_javascript %}
+{% endblock %}
