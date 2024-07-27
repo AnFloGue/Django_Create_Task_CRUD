@@ -12,19 +12,22 @@
                 <br>
                 <div>**********************************</div>
                 <br>
-                <a href="{% url 'homepage' %}"> Home </a>
-                <br>
-                <br>
-                <a href="{% url 'task-view' %}">View Tasks</a>
-                <br>
-                <br>
-                <a href="{% url 'create-task' %}">New Task</a>
-                <br>
-                <br>
-                <a href="{% url 'reviews' %}">Reviews</a>
-                <br>
-                <br>
-                <a href="{% url 'register' %}">Register</a>
+                <div style="display: flex; flex-direction: row;">
+                    <form method="GET" action="{% url 'homepage' %}">
+                        <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Home</button>
+                    </form>
+                    <form method="GET" action="{% url 'task-view' %}">
+                        <button type="submit" class="btn btn-warning" style="margin-right: 10px;">View Tasks</button>
+                    </form>
+                    <form method="GET" action="{% url 'create-task' %}">
+                        <button type="submit" class="btn btn-warning" style="margin-right: 10px;">New Task</button>
+                    </form>
+                    <form method="GET" action="{% url 'reviews' %}">
+                        <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Reviews</button>
+                    </form>
+                    <form method="GET" action="{% url 'register' %}">
+                        <button type="submit" class="btn btn-warning">Register</button> </form>
+                </div>
                 <br>
                 <br>
                 <br>

@@ -83,17 +83,18 @@ def update_task(request, pk):
 
 def delete_task(request, pk):
     task_db_obj = get_object_or_404(Task, id=pk)
-
+    
     if request.method == 'POST':
         task_db_obj.delete()
         return redirect('task-view')
-
+    
     context = {
         "DeleteTaskForm": TaskForm(instance=task_db_obj),
         "task": task_db_obj
     }
-
+    
     return render(request, 'app_01/delete-task.html', context)
+
 
 def register(request):
     reviews = Review.objects.all()
