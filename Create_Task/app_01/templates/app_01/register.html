@@ -1,37 +1,36 @@
 {% extends 'app_01/base.html' %}
 {% load static bootstrap4 %}
+
 {% block title %}
 Register
 {% endblock %}
 
 {% block styles %}
-{% bootstrap_css %}
-<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
 {% endblock %}
 
 {% block header %}
 <div>**********************************</div>
-<h1>Register</h1>
-{% endblock %}
-
-{% block sidebar %}
-<div>**********************************</div>
-<p>This is the sidebar content specific to the Register page.</p>
-<br>
+    <h1>Register</h1>
 {% endblock %}
 
 {% block content %}
 <div>**********************************</div>
-<p>This is the content specific to the Register page.</p>
+    <h3>Register new user:</h3>
+
+    <hr>
+    <form method="POST" autocomplete="off" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form form %}
+        <button type="submit" class="btn btn-custom">Register</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'task-view' %}'">Cancel</button>
+    </form>
 {% endblock %}
 
 {% block footer %}
-<div>**********************************</div>
-<p>This is the footer content specific to the Register page.</p>
 {% endblock %}
 
 {% block scripts %}
-{% bootstrap_javascript %}
-<div>**********************************</div>
-<p>This is the scripts content specific to the Register page.</p>
+    {% bootstrap_javascript %}
 {% endblock %}

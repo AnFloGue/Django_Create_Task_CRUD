@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Task, Review
-from .forms import TaskForm
+from .forms import TaskForm, CreateUserForm
 from django.core.exceptions import ObjectDoesNotExist
 
 
@@ -98,7 +98,17 @@ def delete_task(request, pk):
 
 def register(request):
     reviews = Review.objects.all()
+    
+    form = CreateUserForm()
+    
+    if request.method == 'POST':
+        form = CreateUserForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('homepage')
+        
     context = {
+        'form': form, 
         'reviews': reviews
     }
     return render(request, 'app_01/register.html', context)
