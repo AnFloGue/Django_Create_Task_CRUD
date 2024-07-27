@@ -23,6 +23,8 @@
         {% csrf_token %}
         {% bootstrap_form TaskForm %}
         <button type="submit" class="btn btn-custom">Create task</button>
+        <button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'task-view' %}'">Cancel</button>
+
     </form>
 {% endblock %}
 
