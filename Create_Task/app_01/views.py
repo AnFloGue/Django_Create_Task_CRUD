@@ -1,4 +1,3 @@
-# In `views.py`
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Task, Review
@@ -81,6 +80,20 @@ def update_task(request, pk):
     
     return render(request, 'app_01/update-task.html', context)
 
+
+def delete_task(request, pk):
+    task_db_obj = get_object_or_404(Task, id=pk)
+
+    if request.method == 'POST':
+        task_db_obj.delete()
+        return redirect('task-view')
+
+    context = {
+        "DeleteTaskForm": TaskForm(instance=task_db_obj),
+        "task": task_db_obj
+    }
+
+    return render(request, 'app_01/delete-task.html', context)
 
 def register(request):
     reviews = Review.objects.all()

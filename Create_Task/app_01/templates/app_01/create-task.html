@@ -10,13 +10,14 @@
     <link rel="stylesheet" href="{% static 'styles.css' %}">
 {% endblock %}
 
-{% block header %}
-    <h2>Create Task page</h2>
+{% block header %}      <div>**********************************</div>
+    <h1>New Task</h1>
 {% endblock %}
 
 {% block content %}
-    <h3>Create your task here</h3>
-    <p>Task form</p>
+<div>**********************************</div>
+    <h3>Create a new task:</h3>
+
     <hr>
     <form method="POST" autocomplete="off" enctype="multipart/form-data">
         {% csrf_token %}

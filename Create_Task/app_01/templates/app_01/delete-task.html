@@ -2,27 +2,33 @@
 {% load static %}
 {% load bootstrap4 %}
 {% block title %}
-Update Task
+Delete Task
 {% endblock %}
 
 {% block styles %} {% bootstrap_css %} <link rel="stylesheet" href="{% static 'styles.css' %}"> {% endblock %}
 
 {% block header %}
 <div>**********************************</div>
-    <h1>Update Task</h1>
+<h1>Delete Task</h1>
 {% endblock %}
 
 {% block content %}
 <div>**********************************</div>
 
-<h3> Update your task {{ task.id }}: </h3>
+<h3> Task id: {{ task.id }} </h3>
+<h3> Titlle: {{ task.title }} </h3>
+<h3> Description: {{ task.description }} </h3>
+
+
+
 
 <div>**********************************</div>
 
-<h4> Task form </h4>
+
 <hr>
 <hr>
 <form method="POST" autocomplete="off">
+    <h3> Are you sure you want to delete your task {{ task.title }}, {{ task.description }} </h3>
     {% csrf_token %}
     {% for field in UpdateTaskForm %}
         <div class="form-group">
@@ -31,7 +37,8 @@ Update Task
             {{ field.errors }}
         </div>
     {% endfor %}
-    <button type="submit" class="btn btn-custom">Update task</button>
+<button type="submit" class="btn btn-custom">Delete Task</button>
+<button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'task-view' %}'">Cancel</button>
 </form>
 {% endblock %}
 
