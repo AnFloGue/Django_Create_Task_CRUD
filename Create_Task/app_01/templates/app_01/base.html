@@ -1,44 +1,54 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{% block title %}{% endblock %}</title>
-    {% block styles %}{% endblock %}
+  <title>
+    {% block title %}
+    {% endblock %}
+  </title>
+  {% block styles %}
+  {% endblock %}
 </head>
 <body>
 
-    {% block menu %}
-        <div style="border-bottom: 1px solid #ccc; padding: 10px;">
-            <div>
-                <br>
-                <br>
-                <div style="display: flex; flex-direction: row;">
-                    <form method="GET" action="{% url 'homepage' %}">
-                        <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Home</button>
-                    </form>
-                    <form method="GET" action="{% url 'task-view' %}">
-                        <button type="submit" class="btn btn-warning" style="margin-right: 10px;">View Tasks</button>
-                    </form>
-                    <form method="GET" action="{% url 'create-task' %}">
-                        <button type="submit" class="btn btn-warning" style="margin-right: 10px;">New Task</button>
-                    </form>
-                    <form method="GET" action="{% url 'reviews' %}">
-                        <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Reviews</button>
-                    </form>
-                    <form method="GET" action="{% url 'register' %}">
-                        <button type="submit" class="btn btn-warning">Register</button> </form>
-                </div>
-                <br>
-  
-                <br>
-            </div>
-        </div>
-    {% endblock %}
+  {% block menu %}
+  <div style="border-bottom: 1px solid #ccc; padding: 10px;">
+    <div>
+      <br>
+      <br>
+      <div style="display: flex; flex-direction: row;">
+        <form method="GET" action="{% url 'homepage' %}">
+          <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Home</button>
+        </form>
+        <form method="GET" action="{% url 'task-view' %}">
+          <button type="submit" class="btn btn-warning" style="margin-right: 10px;">View Tasks</button>
+        </form>
+        <form method="GET" action="{% url 'create-task' %}">
+          <button type="submit" class="btn btn-warning" style="margin-right: 10px;">New Task</button>
+        </form>
+        <form method="GET" action="{% url 'reviews' %}">
+          <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Reviews</button>
+        </form>
+        <form method="GET" action="{% url 'register' %}">
+          <button type="submit" class="btn btn-warning">Register</button>
+        </form>
+      </div>
+      <br>
+      <br>
+    </div>
+  </div>
+  {% endblock %}
 
-    {% block header %}{% endblock %}
-    {% block sidebar %}{% endblock %}
-    {% block content %}{% endblock %}
-    {% block footer %}{% endblock %}
-    {% block scripts %}{% endblock %}
+  {% block header %}{% endblock %}
+  {% block sidebar %}{% endblock %}
+  {% block content %}{% endblock %}
+  {% block footer %}{% endblock %}
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fyj4CNkQ8veWhs9amheHxEmtNLCvSCXnwbYl/7Yr9m/jqAS89UwmW8caUy10zIu+n" crossorigin="anonymous"></script>
+
+  {% block scripts %}
+  {% endblock %}
 
 </body>
 </html>
