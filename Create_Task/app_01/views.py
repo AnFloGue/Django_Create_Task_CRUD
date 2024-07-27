@@ -1,7 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from .models import Task, Review
-from .forms import TaskForm, CreateUserForm
+from .forms import TaskForm, CreateUserForm, LoginForm
 from django.core.exceptions import ObjectDoesNotExist
 
 
@@ -111,15 +111,19 @@ def register(request):
     return render(request, 'app_01/register.html', context)
 
 
-def login_page(request):
-    context = {
-        'reviews': reviews
-    }
-    return render(request, 'app_01/login.html', context)
+# Create_Task/app_01/views.py
+
+
+def my_login(request):
+    form = LoginForm()
+    context = {'form': form}
+    return render(request, 'app_01/my-login.html', context)
 
 
 def dashboard(request):
+    registration_form = CreateUserForm()
+    
     context = {
-        'reviews': reviews
+        'registration_form': registration_form
     }
     return render(request, 'app_01/dashboard.html', context)
