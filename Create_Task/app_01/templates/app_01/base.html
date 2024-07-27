@@ -28,9 +28,16 @@
         <form method="GET" action="{% url 'reviews' %}">
           <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Reviews</button>
         </form>
-        <form method="GET" action="{% url 'register' %}">
-          <button type="submit" class="btn btn-warning">Register</button>
+          <form method="GET" action="{% url 'my-login' %}">
+          <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Login</button>
         </form>
+        <form method="GET" action="{% url 'register' %}">
+          <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Register</button>
+        </form>
+        <form method="GET" action="{% url 'dashboard' %}">
+          <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Dashboard</button>
+        </form>
+        
       </div>
       <br>
       <br>

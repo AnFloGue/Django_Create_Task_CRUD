@@ -3,6 +3,8 @@ from django.shortcuts import render, redirect, get_object_or_404
 from .models import Task, Review
 from .forms import TaskForm, CreateUserForm, LoginForm
 from django.core.exceptions import ObjectDoesNotExist
+from django.contrib.auth.models import auth
+from django.contrib.auth import authenticate, login, logout
 
 
 def homepage(request):
@@ -111,11 +113,20 @@ def register(request):
     return render(request, 'app_01/register.html', context)
 
 
-# Create_Task/app_01/views.py
-
-
 def my_login(request):
     form = LoginForm()
+    if request.method == 'POST':
+        form = LoginForm(request.POST)
+        if form.is_valid():
+            username = form.cleaned_data['username']
+            password = form.cleaned_data['password']
+            
+            user = authenticate(request, username=username, password=password)
+            
+            if user is not None:
+                login(request, user)
+                return redirect('dashboard')
+    
     context = {'form': form}
     return render(request, 'app_01/my-login.html', context)
 
@@ -127,3 +138,8 @@ def dashboard(request):
         'registration_form': registration_form
     }
     return render(request, 'app_01/dashboard.html', context)
+
+
+def user_logout(request):
+    auth.logout(request)
+    redirect('homepage')
