@@ -5,6 +5,7 @@ from .forms import TaskForm, CreateUserForm, LoginForm
 from django.core.exceptions import ObjectDoesNotExist
 from django.contrib.auth.models import auth
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
 
 
 def homepage(request):
@@ -131,6 +132,7 @@ def my_login(request):
     return render(request, 'app_01/my-login.html', context)
 
 
+@login_required(login_url='my-login')
 def dashboard(request):
     if request.user.is_authenticated:
         user = request.user
@@ -148,4 +150,8 @@ def dashboard(request):
 
 def user_logout(request):
     auth.logout(request)
-    redirect('homepage')
+    context = {
+        'username': 'Guest',
+        'email': 'Not available',
+    }
+    return render(request, 'app_01/dashboard.html', context)

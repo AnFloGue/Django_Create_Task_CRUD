@@ -2,7 +2,7 @@
 {% load static bootstrap4 %}
 
 {% block title %}
-Register
+Logout
 {% endblock %}
 
 {% block styles %}
@@ -12,20 +12,19 @@ Register
 
 {% block header %}
 <div>**********************************</div>
-    <h1>Register</h1>
+    <h1>Logout</h1>
 {% endblock %}
 
 {% block content %}
 <div>**********************************</div>
-    <h3>Register new user:</h3>
+    <h3>User information:</h3>
+    <p>Username: {{ username }}</p>
+    <p>Email: {{ email }}</p>
 
+<form method="GET" action="{% url 'my-login' %}">
+    <button type="submit" class="btn btn-primary btn-margin-right">Login</button>
+</form>
     <hr>
-    <form method="POST" autocomplete="off" enctype="multipart/form-data">
-        {% csrf_token %}
-        {% bootstrap_form form %}
-        <button type="submit" class="btn btn-custom">Register</button>
-        <button type="button" class="btn btn-secondary" onclick="window.location.href='{% url 'homepage' %}'">Cancel</button>
-    </form>
 {% endblock %}
 
 {% block footer %}

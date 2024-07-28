@@ -21,8 +21,8 @@ Dashboard
     <p>Username: {{ username }}</p>
     <p>Email: {{ email }}</p>
 
-<form method="GET" action="{% url 'homepage' %}">
-  <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Homepage</button>
+<form method="GET" action="{% url 'my-login' %}">
+    <button type="submit" class="btn btn-primary btn-margin-right">Login</button>
 </form>
     <hr>
 {% endblock %}
