@@ -18,12 +18,13 @@ Dashboard
 {% block content %}
 <div>**********************************</div>
     <h3>User information:</h3>
+    <p>Username: {{ username }}</p>
+    <p>Email: {{ email }}</p>
 
 <form method="GET" action="{% url 'homepage' %}">
   <button type="submit" class="btn btn-warning" style="margin-right: 10px;">Homepage</button>
 </form>
     <hr>
-
 {% endblock %}
 
 {% block footer %}

@@ -132,11 +132,17 @@ def my_login(request):
 
 
 def dashboard(request):
-    registration_form = CreateUserForm()
-    
-    context = {
-        'registration_form': registration_form
-    }
+    if request.user.is_authenticated:
+        user = request.user
+        context = {
+            'username': user.username,
+            'email': user.email,
+        }
+    else:
+        context = {
+            'username': 'Guest',
+            'email': 'Not available',
+        }
     return render(request, 'app_01/dashboard.html', context)
 
 
