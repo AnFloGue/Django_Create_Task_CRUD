@@ -1,67 +1,99 @@
-# Getting Started
 
-This README provides a comprehensive guide to setting up and running your Django application.
-         
+___
+![Google Logo](https://static.djangoproject.com/img/logos/django-logo-negative.png)
 
-### Prerequisites
-1. Python (version 3.x recommended)
-2. pip (Python package installer)
+
+___
+
+# Django Project Template
+<br>
+
+___
+
 
 ### Installation
-1. Create a virtual environment (recommended):
+1. If required, remove the existing virtual environment, run the following command:
+    ```bash
+    rm -rf env
+    ```
+
+    ```bash
+    sudo rm -rf env
+    ```
+
+2. Create a new virtual environment and activate it:
     ```bash
     python3 -m venv env
-    source env/bin/activate  # Linux/macOS
-
+    source env/bin/activate
     ```
 
-2. Install Django:
+3. Install the dependencies:
     ```bash
-    pip install django
-    ```
-
-3. Create a new Django project:
+    pip install -r requirements.txt
+    ```            
+   
+4. if any package has been installed, refresh (update) the dependencies document:
     ```bash
-    django-admin startproject myproject
-    cd myproject         
-   python manage.py startapp your_app_name
+    pip freeze > requirements.txt
     ```
 
-### Running the Development Server
-1. Start the development server:
-    ```bash
-    python manage.py runserver
-    ```
+### Running the Local Server
+Start the development server:
 
-    This will launch the Django server at http://127.0.0.1:8000/ by default. You can access your application in a web browser.
+ ```bash
+ python manage.py runserver
+ ```
+
+   This will launch the Django local server panel at 
+   
+<http://127.0.0.1:8000>
+
+   This will launch the Django admin panel at 
+   
+<http://127.0.0.1:8000/admin/>
+
 
 ### Creating Models
-1. Models define the data structure for your application. You can modify your models in the `models.py` file within your project's `myproject` directory.
+1. Models define the data structure for your application. 
+2. Create your models in the `models.py` of each app.
 
-2. Register your models in the admin panel by adding them to the `admin.py` file in the same directory. e.g.  
+3. Register your models in the admin panel by adding them to the `admin.py` file in the same directory. e.g.
+    ```python
+    from django.contrib import admin
+    from .models import Model_01, Model_02, Model_03, Model_etc
 
-         from django.contrib import admin
-         from .models import Member, CarModel, Task, Review
-         
-         admin.site.register(Member)
-         admin.site.register(CarModel)
-         admin.site.register(Task)
-         admin.site.register(Review)
-3. 
+    admin.site.register(Model_01)
+    admin.site.register(Model_02)
+    admin.site.register(Model_03)
+    admin.site.register(Model_etc)
+    ```
+
 ### Applying Database Changes
 1. Create migrations:
     ```bash
-    python manage.py makemigrations <app_name>  # Replace `<app_name>` with your app's name (optional)
+    python manage.py makemigrations
     ```
-
-    This generates migration files that track changes made to your models.
 
 2. Apply migrations:
     ```bash
     python manage.py migrate
     ```
 
-    This applies the generated migrations to your database, ensuring the schema reflects your model updates.
+### Show Migrations Status 
+1. this command will show the migrations status:
+    ```bash
+    python manage.py showmigrations
+    ```
+
+### Rollback Migration 
+1. this command will rollback the migrations:
+    ```bash
+    python manage.py migrate <app_name> <migration_name>
+    ```      
+   or to rollback all migrations:
+    ```bash
+    python manage.py migrate <app_name> zero
+    ```
 
 ### Creating an Admin User
 1. Create a superuser:
@@ -69,11 +101,17 @@ This README provides a comprehensive guide to setting up and running your Django
     python manage.py createsuperuser
     ```
 
-    Follow the prompts to enter a username, email address, and password for your admin account.
+### Run Local Server 
+1. Start the development server:
+    ```bash
+    python manage.py runserver
+    ```
 
-2. Access the admin panel:
-    Open http://127.0.0.1:8000/admin/ in your web browser. Use the credentials you created in step 1 to log in.
+    ```
+   
 
-### Additional Notes
-1. Consider using a code formatter like `autopep8` to maintain consistent code style.
-2. Refer to the official Django documentation for more advanced topics: https://docs.djangoproject.com/en/5.0/
+### Admin Panel
+1. Access the admin panel at:
+
+    <http://127.0.0.1:8000/admin/>
+    ```
